@@ -253,5 +253,6 @@ class Database:
         level_customizations = {}
         for level_customization in customizations:
             if level_customization['level'] in [level, level-1, level+1]:
+                print(level)
                 level_customizations[level] = level_customization
         return level_customizations

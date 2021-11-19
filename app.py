@@ -809,7 +809,7 @@ def get_restrictions(adventures, user, level):
         student_classes = DATABASE.get_student_classes(user)
         if student_classes:
             level_preferences = DATABASE.get_level_preferences_class(student_classes[0]['id'], level)
-            if level_preferences[level]:
+            if level_preferences and level_preferences[level]:
                 found_restrictions = True
                 display_adventures = []
                 for adventure in adventures:
