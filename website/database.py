@@ -250,7 +250,8 @@ class Database:
 
     def get_level_preferences_class(self, class_id, level):
         customizations = CUSTOMIZATIONS.get_many({'id': class_id})
+        level_customizations = {}
         for level_customization in customizations:
-            if level_customization['level'] == level:
-                return level_customization
-        return None
+            if level_customization['level'] in [level, level-1, level+1]:
+                level_customizations[level] = level_customization
+        return level_customizations
